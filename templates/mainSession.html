@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Compatiablity -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-3.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+            </div>
+            <div class="proj-logo">
+                <img src="{{ url_for('static', filename ='zerologo.png') }}">
+            </div>
+            <div class="netcontt">
+                <img src="{{ url_for('static', filename ='sigicon.png') }}">
+            </div>
+        </div>
+    </nav>
+
+    {% if langOption ==0 %}
+    <!-- Content  -->
+    <div class="dashboard" style="padding-top: 0px;">
+        <div id="dashboardcontainer">
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='bottle.png') }}">
+                <h4>Bottles Count</h4>
+                <span style="font-size: 40px;">{{counts[0]}}</span>
+            </div>
+            <div class="item" style="text-align: center;" >
+                <img src="{{ url_for('static', filename ='others.png') }}">
+                <h4>Tetra Pack Count</h4>
+                <span style="font-size: 40px;">{{counts[1]}}</span>
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='sachets.png') }}" alt="bottle">
+                <h4>Satches Count</h4>
+                <span style="font-size: 40px;">{{counts[2]}}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button  -->
+    <div class="session-close" style="margin:0;">
+        <div id="sessionclosecontainer">
+            <form name="xyz" id="xyz" action="{{ url_for('confirmPage')}}">
+                <button type="submit" id="close">Close Session</button>
+            </form>
+        </div>
+    </div>
+    {%elif langOption ==1%}
+    <div class="dashboard" style="padding-top: 0px;">
+        <div id="dashboardcontainer">
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='bottle.png') }}">
+                <h4>बोतल की गिनती</h4>
+                <span style="font-size: 40px;">{{counts[0]}}</span>
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='others.png') }}">
+                <h4>टेट्रा पैक की गिनती</h4>
+                <span style="font-size: 40px;">{{counts[1]}}</span>
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='sachets.png') }}" alt="bottle">
+                <h4>पाउच की गिनती</h4>
+                <span style="font-size: 40px;">{{counts[2]}}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button  -->
+    <div class="session-close" style="margin:0;" >
+        <div id="sessionclosecontainer">
+            <form name="xyz" id="xyz" action="{{ url_for('confirmPage')}}">
+                <button type="submit" id="close">सत्र बंद करें</button>
+            </form>
+        </div>
+    </div>
+
+    {%else%}
+    <div class="dashboard" style="padding-top: 0px;">
+        <div id="dashboardcontainer">
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='bottle.png') }}">
+                <h4>ಬಾಟಲ್ ಎಣಿಕೆ</h4>
+                <span style="font-size: 40px;">{{counts[0]}}</span>
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='others.png') }}">
+                <h4>ಟೆಟ್ರಾ ಪ್ಯಾಕ್ ಎಣಿಕೆ</h4>
+                <span style="font-size: 40px;">{{counts[1]}}</span>
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="{{ url_for('static', filename ='sachets.png') }}" alt="bottle">
+                <h4>ಚೀಲ ಎಣಿಕೆ</h4>
+                <span style="font-size: 40px;">{{counts[2]}}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button  -->
+    <div class="session-close" style="margin:0;">
+        <div id="sessionclosecontainer">
+            <form name="xyz" id="xyz" action="{{ url_for('confirmPage')}}">
+                <button type="submit" id="close">ಅಧಿವೇಶನವನ್ನು ಕೊನೆಗೊಳಿಸಿ</button>
+            </form>
+        </div>
+    </div>
+    {%endif%}
+
+
+    <!-- Navigation -->
+    <nav>
+        <div id="navcontainer" style=" margin-top:-20px; padding: 0; height: 100px;">
+            <div id="sessionclosecontainer" style="padding: 0;"> 
+            <div class="bin-levels" style="display: flex; justify-content: center; width: auto;  margin: 0; padding: 0;" >
+                <div style=" width: 20%;">
+                    <img style="width: 30%;padding: 10px;" src="{{ url_for('static', filename ='bottle_bin.png') }}">
+                    <div>Bottles</div>
+                </div>
+                <div style=" width: 20%;">
+                    <img style="width: 30%; padding: 10px; " src="{{ url_for('static', filename ='tetra_bin.png') }}">
+                    <div>Satches</div>
+                </div>
+                <div style=" width: 20%;" >
+                    <img style="width: 30%; padding: 10px;" src="{{ url_for('static', filename ='sachet_bin.png') }}">
+                <div>Tetra_Pack</div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+</body>
+<script type="text/javascript">
+    function popup() {
+
+        window.location.href = "{{url_for('enterMain')}}";
+    }
+    setTimeout('popup()',1300);
+    document.getElementById('popup').style.display = "block";   
+</script>
+
+</html>

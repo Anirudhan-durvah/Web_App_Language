@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popups</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+    <!-- Compatiablity -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+    
+</head>
+<body>
+    <!-- Navigation -->
+  <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+              </div>
+              <div class="proj-logo">
+                  <img src="{{ url_for('static', filename ='zerologo.png') }}">
+                </div>
+              <div class="netcontt">
+                  <img src="{{ url_for('static', filename ='sigicon.png') }}">
+              </div>
+        </div>
+    </nav>
+
+    
+
+    {% if langOption ==0 %}
+    <div class="mainconfirmcontainer" id="popup">
+        <div class="popupcontainer" id="earnedpopup">
+            <div class="poptext">
+                You have earned credits: {{total_credits}}<br>
+                Do you want to exit?
+            </div>
+            <div id="earnedpopupbuttons">
+                
+                <form action="{{ url_for('thanksPopup')}}">
+                    <button class="session_button" id="end_session" type="submit" style="background-color: #E84E16">Close Session</button>
+                </form>
+                <form action="{{ url_for('enterMain')}}">
+                    <button class="session_button" id="continue_session" type="submit">Continue</button> 
+            </div>
+        </div>
+    </div>
+
+    {%elif langOption ==1%}
+        <div class="mainconfirmcontainer" id="popup">
+        <div class="popupcontainer" id="earnedpopup">
+            <div class="poptext">
+                आपने क्रेडिट अर्जित किए हैं: {{total_credits}}<br>
+                क्या आप बंद करना चाहते हैं?
+            </div>
+            <div id="earnedpopupbuttons">
+                <form action="{{ url_for('thanksPopup')}}">
+                    <button class="session_button" id="end_session" type="submit">Close Session</button>
+                </form>
+                <form action="{{ url_for('enterMain')}}">
+                    <button class="session_button" id="continue_session" type="submit">Continue</button>                
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {%else%}
+        <div class="mainconfirmcontainer" id="popup">
+        <div class="popupcontainer" id="earnedpopup">
+            <div class="poptext">      
+                ನೀವು ಕ್ರೆಡಿಟ್‌ಗಳನ್ನು ಗಳಿಸಿದ್ದೀರಿ: {{total_credits}}<br>
+                ನೀವು ಮುಚ್ಚಲು ಬಯಸುವಿರಾ?
+            </div>
+            <div id="earnedpopupbuttons">
+                <form action="{{ url_for('thanksPopup')}}">
+                    <button class="session_button" id="end_session" type="submit">Close Session</button>
+                </form>
+                <form action="{{ url_for('enterMain')}}">
+                    <button class="session_button" id="continue_session" type="submit">Continue</button> 
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popups</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+    <!-- Compatiablity -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+    
+</head>
+<body>
+    <!-- Navigation -->
+  <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+              </div>
+              <div class="proj-logo">
+                  <img src="{{ url_for('static', filename ='zerologo.png') }}">
+                </div>
+              <div class="netcontt">
+                  <img src="{{ url_for('static', filename ='sigicon.png') }}">
+              </div>
+        </div>
+    </nav>
+
+    
+
+    {% if langOption ==0 %}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="entermobilepopup">
+            <div class="poptext">
+                Hello and Welcome to Zerofill
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    {%elif langOption ==1%}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="entermobilepopup">
+            <div class="poptext">
+                ज़ीरोफिल में आपका स्वागत है
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+
+    {%else%}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="entermobilepopup">
+            <div class="poptext">
+                ಹಲೋ ಮತ್ತು ಜೆರೋಫಿಲ್ಗೆ ಸ್ವಾಗತ
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    {% endif %}
+</body>
+<script type="text/javascript">   
+    function popup() 
+    {  
+
+        window.location.href = "{{url_for('enterMain')}}";
+    } 
+    setTimeout('popup()', 1300);
+    document.getElementById('popup').style.display="block";   
+    </script>
+
+</html>
+

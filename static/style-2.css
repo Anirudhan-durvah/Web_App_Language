@@ -1,0 +1,79 @@
+.mainpopupcontainer{
+    display: none;
+    font-family: 'Montserrat',sans-serif;
+}
+.mainconfirmcontainer{
+    display: block;
+    font-family: 'Montserrat',sans-serif;
+}
+.popupcontainer{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(1);
+    border: none;
+    border-radius:5px ;
+    z-index: 10;
+}
+.poptext{
+    padding:20px ;
+    text-align: center;
+    font-size: 20px;
+}
+#entermobilepopup{
+    background-color: chartreuse;
+    width: 300px;
+    height: 100px;
+    max-width: 80%;
+}
+
+#earnedpopup{
+    background-color: orange;
+    width: 400px;
+    height: 200px;
+}
+#earnedpopupbuttons{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.session_button{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 18px;
+    padding: 8px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin:10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#end_session{
+    background-color: #E84E16;
+}
+#continue_session{
+    background-color: green;
+}
+#thankyoupopup{
+    background-color: chartreuse;
+    width: 400px;
+    height: 250px;
+}
+#thankyoupopupimg img{
+    width: 25%;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 2000ms ease-in-out;
+    /* opacity: 0; */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active{
+    opacity: 1;
+}
+

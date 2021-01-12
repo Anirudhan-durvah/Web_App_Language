@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Compatiablity -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+
+</head>
+<body>
+  
+<!-- Navigation -->
+  <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+              </div>
+              <div class="proj-logo">
+                  <img src="{{ url_for('static', filename ='zerologo.png') }}">
+                </div>
+              <div class="netcontt">
+                  <img src="{{ url_for('static', filename ='sigicon.png') }}">
+              </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    {% if langOption ==0 %}
+    <div class="loginform">
+        <div class="formcontainer">
+            <form action="{{ url_for('enterOTP')}}" method="post">
+                <label>Mobile number</label><br>
+                <input type="text" placeholder="Mobile Number" name='mobNumber' required data-validation-required-message="Please enter your mobile number."><br>
+
+                {% if errorMessage == True %}
+                <label style="color:yellow; font-size: 18px">*Enter valid number</label><br>
+                {% endif %}
+               <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    {%elif langOption ==1%}
+    <!-- Content -->
+    <div class="loginform">
+        <div class="formcontainer">
+            <form action="{{ url_for('enterOTP')}}" method="post">
+                <label>मोबाइल नंबर</label><br>
+                <input type="text" placeholder="अपना मोबाइल नंबर दर्ज करें" name='mobNumber' required
+                    data-validation-required-message="Please enter your mobile number."><br>
+
+                {% if errorMessage == True %}
+                <label style="color:yellow; font-size: 18px">*सही मोबाइल नंबर दर्ज करें</label><br>
+                {% endif %}
+               <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    {%else%}
+    <!-- Content -->
+    <div class="loginform">
+        <div class="formcontainer">
+            <form action="{{ url_for('enterOTP')}}" method="post">
+                <label>ಮೊಬೈಲ್ ನಂಬರ</label><br>
+                <input type="text" placeholder="ನಿಮ್ಮ ಮೊಬೈಲ್ ನಂಬರನ್ನು ನಮೂದಿಸಿರಿ" name='mobNumber' required
+                    data-validation-required-message="Please enter your mobile number."><br>
+
+                {% if errorMessage == True %}
+                <label style="color:yellow; font-size: 18px">*ಸರಿಯಾದ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ</label><br>
+                {% endif %}
+               <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+
+    
+</body>
+</html>
+    
+

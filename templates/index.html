@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Compatiablity -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+            </div>
+            <div class="proj-logo">
+                <img src="{{ url_for('static', filename ='zerologo.png') }}">
+            </div>
+            <div class="netcontt">
+                <img src="{{ url_for('static', filename ='sigicon.png') }}">
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT  -->
+    <div class="welcome" style="justify-content: center;
+   width: 100%;
+   text-align: center;">
+
+        <h1 style="font-size: 40px; font-weight: 200; margin: 5px;">Welcome to ZeroFill</h1>
+        <h1 style="font-size: 40px; font-weight: 200; margin: 5px;">ZeroFill में आपका स्वागत है</h1>
+        <h1 style="font-size: 40px; font-weight: 200; margin: 5px;">ನಿಮಗೆ ಸ್ವಾಗತ</h1>
+
+        <div style="margin-top:7%; display: flex; justify-content: center;">
+        <a href="{{ url_for('enterMobile', langOption=0)}}">
+            <button type="submit" style="margin: 8px; padding: 11px;">English</button>
+          </a>
+          <a href="{{ url_for('enterMobile', langOption=1)}}">
+            <button type="submit" style="margin: 8px;">हिंदी</button>
+          </a>
+          <a href="{{ url_for('enterMobile', langOption=2)}}">
+            <button type="submit" style="margin: 8px; padding: 11px;">ಕನ್ನಡಕನ್ನಡ</button>
+          </a>
+                
+                
+        </div>
+
+    </div>
+</body>
+
+</html>

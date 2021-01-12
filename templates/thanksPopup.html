@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popups</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+    <!-- Compatiablity -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{(url_for('static',filename = 'script.js'))}}"></script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div id="navcontainer">
+            <div class="main-logo">
+                <img src="{{ url_for('static', filename ='logo.png') }}">
+            </div>
+            <div class="proj-logo">
+                <img src="{{ url_for('static', filename ='zerologo.png') }}">
+            </div>
+            <div class="netcontt">
+                <img src="{{ url_for('static', filename ='sigicon.png') }}">
+            </div>
+        </div>
+    </nav>
+
+
+
+    {% if langOption ==0 %}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="thankyoupopup">
+            <div class="poptext">
+                Thank You
+            </div>
+            <div id="thankyoupopupimg" style="text-align: center;">
+                <img src="/static/smile3.svg" alt="">
+            </div>
+            <div style="font-size: 16px; text-align: center;">
+                Thank you for using ZeroFill. Have a good day.
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    {%elif langOption ==1%}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="thankyoupopup">
+            <div class="poptext">
+                धन्यवाद
+            </div>
+            <div id="thankyoupopupimg" style="text-align: center;">
+                <img src="/static/smile3.svg" alt="">
+            </div>
+            <div style="font-size: 16px; text-align: center;">
+                ज़ीरोफिल का उपयोग करने के लिए धन्यवाद| आपका दिन शुभ हो|
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+
+    {%else%}
+    <div class="mainpopupcontainer" id="popup">
+        <div class="popupcontainer" id="thankyoupopup">
+            <div class="poptext">
+                ಧನ್ಯವಾದ
+            </div>
+            <div id="thankyoupopupimg" style="text-align: center;">
+                <img src="/static/smile3.svg" alt="">
+            </div>
+            <div style="font-size: 16px; text-align: center;">
+                ಜೆರೋಫಿಲ್ ಬಳಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ದಿನವು ಒಳೆೣಯದಾಗಲಿ.
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    {% endif %}
+</body>
+<script type="text/javascript">
+    function popup() {
+
+        window.location.href = "{{url_for('redirectWelcome')}}";
+    }
+    setTimeout('popup()', 1500);
+    document.getElementById('popup').style.display = "block";   
+</script>
+
+</html>
