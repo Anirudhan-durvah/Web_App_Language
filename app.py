@@ -12,7 +12,7 @@ import time
 
 
 global COUNTS
-COUNTS = [0, 0, 0]
+COUNTS = [0, 1, 1]
 
 def validate_number(number):
    Valid = False
